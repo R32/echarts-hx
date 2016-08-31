@@ -54,6 +54,11 @@ ETest.main();
 })();
 ```
 
+IntelliSense（智能语法提示与自动完成）:
+
+  ![IntelliSense png](www/Intellisense.png)
+
+
 for `haxe.extern.EitherType` :
 
 ```haxe
