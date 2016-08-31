@@ -1,0 +1,46 @@
+html,body{
+	margin:0;
+	padding:0;
+	border: none;
+	font-size: 16px;
+	font-family: "宋体";
+	height:100%;
+}
+
+#main{
+	display: flex;
+	height: inherit;
+	color: #fff;
+
+	.leftSiderbar{       // Left
+		width: 200px;
+		background-color: #333;
+	}
+
+	.rightContent{       // Right
+		display: flex;
+		background-color: #999;
+		flex-grow: 1;
+		flex-direction: column;
+
+		.header{         // Right > Header
+			height: 60px;
+			text-align:right;
+			background-color:#111;
+		}
+
+		.MainContainer{  // Right > MainContainer
+			background-color: #ddd;
+			flex-grow: 1;
+			overflow:auto;
+		}
+	}
+}
+
+#ec{
+	display:inline-block;
+	width: 600px;
+	height: 400px;
+	background-color:#000;
+}
+
