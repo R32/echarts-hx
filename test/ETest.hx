@@ -1,38 +1,15 @@
 package;
 
-import js.Echarts;
 import js.Browser.document;
-import js.echarts.Event;
-import js.echarts.Action;
-import js.echarts.ActionEvent;
-import js.echarts.MouseEvent;
-import js.echarts.options.*;
-import utils.Mt.HexColor;
-import js.echarts.options.Data;
-
 
 class ETest{
-	static function main(){
-		var ec = Echarts.init( document.getElementById("ec") );
+	static function main() {
 
-		js.Lib.global.ec = ec;
-
-		var t: js.echarts.options.Title = {};
-		var g: js.echarts.options.Grid = {};
-		var xa: js.echarts.options.XAxis = {};
-
-		ec.dispatchAction({
-			type: DOWNPLAY
-		});
-
-		ec.on(ActionEvent.DATARANGESELECTED, function(param) {
-			trace(param.type == ActionEvent.DATARANGESELECTED);
-			trace((param.selected: Array<Int>));
-		} );
+		var ec = js.Echarts.init( document.getElementById("ec") );
 
 		ec.setOption( {
 			title: {
-				text: "Echarts 入库门示例",
+				text: "Echarts 入门示例",
 			},
 
 			tooltip: {},
