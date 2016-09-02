@@ -134,7 +134,7 @@ typedef Legend = {
 	 }
 	 ```
 	*/
-	@:optional var formatter: EitherType<String, String -> String>; // TODO: Rest<String> -> String
+	@:optional var formatter: EitherType<String, String -> String>;
 
 	/**
 	 图例选择的模式，默认开启图例选择，可以设成 false 关闭。
@@ -223,7 +223,7 @@ typedef Legend = {
 	*/
 	@:optional var data: Array<EitherType<String, {
 		name: String,
-		?icon: String, // TODO:
+		?icon: EitherType<IconType, String>,
 		?textStyle: TextStyle
 	}>> ;
 

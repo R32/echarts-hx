@@ -4,6 +4,7 @@ import haxe.Constraints.Function;
 import haxe.extern.EitherType;
 import haxe.extern.Rest;
 import js.html.Element;
+import js.echarts.SetOptions;
 
 typedef GeoJson = {}
 
@@ -25,7 +26,7 @@ extern class Echarts{
 	ECharts 会合并新的参数和数据，然后刷新图表。如果开启动画的话，
 	ECharts 找到两组数据之间的差异然后通过合适的动画去表现数据的变化
 	*/
-	function setOption(option:js.echarts.SetOptions, ?notMerge:Bool, ?lazyUpdate:Bool):Void;
+	function setOption(option: SetOptions, ?notMerge:Bool, ?lazyUpdate:Bool):Void;
 
 
 	/**
@@ -81,7 +82,7 @@ extern class Echarts{
 	 })
 	 ```
 	*/
-	function getOption():js.echarts.SetOptions;
+	function getOption():js.echarts.GetOptions;
 
 	/**
 	 改变图表尺寸，在容器大小发生改变时需要手动调用。
@@ -247,6 +248,11 @@ extern class Echarts{
 	 获取 dom 容器上的实例
 	*/
 	static function getInstanceByDom(target: Element):Echarts;
+
+	/**
+	 @:ec_inst: dom.getAttribute("_echarts_instance_")
+	*/
+	static function getInstanceById(ec_inst: String):Echarts;
 
 	/**
 	 注册可用的地图，必须在包括 geo 组件或者 map 图表类型的时候才能使用。

@@ -28,7 +28,7 @@ import js.echarts.Action;
 typedef LegendEvent = {
 	var type: ActionEvent<LegendEvent -> Void>;
 	var name: String;
-	var selected:Dynamic; // TODO 所有图例的选中状态表。
+	var selected:Dynamic; // TODO: 所有图例的选中状态表。
 }
 
 typedef DataZoomEvent = {

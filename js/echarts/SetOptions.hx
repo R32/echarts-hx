@@ -1,84 +1,85 @@
 package js.echarts;
 
 import js.echarts.options.*;
+import js.echarts.options.Data;
 import haxe.extern.EitherType;
 
 typedef SetOptions = {
+
+	> Animation,
+
 	@:optional var backgroundColor: String;
 	@:optional var blendMode : BlendMode;          // "source-over"
 	@:optional var color: Array<String>;
-	@:optional var animation: Bool;
-	@:optional var animationThreshold : Float;
-	@:optional var animationDuration : Float;
-	@:optional var animationEasing : Easing;       // TODO: ??? cubicOut
-	@:optional var animationDelay : EitherType<Float, Int->Float>;
-	@:optional var animationDurationUpdate : Float;// 300
-	@:optional var animationEasingUpdate : Easing; // TODO: ??? cubicOut
-	@:optional var animationDelayUpdate : EitherType<Float, Int->Float>;
 	@:optional var progressive : Float;            // 400
 	@:optional var progressiveThreshold : Float;   // 3000
 	@:optional var hoverLayerThreshold : Float;    // 3000
-
-
-	@:optional var title : Title;
-	@:optional var legend : Legend;
+	@:optional var textStyle : TextStyle;
+	////
+	@:optional var title : EitherType<Title, Array<Title>>;
+	@:optional var legend : EitherType<Legend, Array<Legend>>;
 	@:optional var grid : Array<Grid>;
 	@:optional var xAxis : EitherType<XAxis, Array<XAxis>>;
 	@:optional var yAxis : EitherType<YAxis, Array<YAxis>>;
-
+	@:optional var polar : EitherType<Polar, Array<Polar>>;
+	@:optional var radiusAxis : EitherType<RadiusAxis, Array<RadiusAxis>>;
+	@:optional var angleAxis : EitherType<AngleAxis, Array<AngleAxis>>;
+	@:optional var radar : EitherType<Radar, Array<Radar>>;
+	@:optional var dataZoom : Array<DataZoom>;
+	@:optional var visualMap : Array<VisualMap>;
+	@:optional var tooltip : EitherType<Tooltip, Array<Tooltip>>;
+	@:optional var toolbox : EitherType<Toolbox, Array<Toolbox>>;
+	@:optional var brush : EitherType<Brush, Array<Brush>>;
+	@:optional var geo : EitherType<Geo, Array<Geo>>;
+	@:optional var parallel : EitherType<Parallel, Array<Parallel>>;
+	@:optional var parallelAxis : Array<ParallelAxis>;
+	@:optional var singleAxis : Array<SingleAxis>;
 	// TODO:
+	@:optional var timeline : EitherType<Timeline, Timeline>;
+	@:optional var series : Array<Dynamic>;
 
-	@:optional var polar : Dynamic;
-	@:optional var radiusAxis : Dynamic;
-	@:optional var angleAxis : Dynamic;
-	@:optional var radar : Dynamic;
-	@:optional var dataZoom : Dynamic;
-	@:optional var visualMap : Dynamic;
-	@:optional var tooltip : Dynamic;
-	@:optional var toolbox : Dynamic;
-	@:optional var brush : Dynamic;
-	@:optional var geo : Dynamic;
-	@:optional var parallel : Dynamic;
-	@:optional var parallelAxis : Dynamic;
-	@:optional var singleAxis : Dynamic;
-	@:optional var timeline : Dynamic;
-	@:optional var series : Dynamic;
+}
+
+typedef GetOptions = {
+	> Animation,
+	@:optional var backgroundColor: String;
+	@:optional var blendMode : BlendMode;
+	var color: Array<String>;
+	var progressive : Float;
+	var progressiveThreshold : Float;
+	var hoverLayerThreshold : Float;
+	var textStyle : TextStyle;
+	// compoment
+	@:optional var title : Array<Title>;
+	@:optional var legend : Array<Legend>;
+	@:optional var grid : Array<Grid>;
+	@:optional var xAxis : Array<XAxis>;
+	@:optional var yAxis : Array<YAxis>;
+	@:optional var polar : Array<Polar>;
+	@:optional var radiusAxis : Array<RadiusAxis>;
+	@:optional var angleAxis : Array<AngleAxis>;
+	@:optional var radar : Array<Radar>;
+	@:optional var dataZoom : Array<DataZoom>;
+	@:optional var visualMap : Array<VisualMap>;
+	@:optional var tooltip : Array<Tooltip>;
+	@:optional var toolbox : Array<Toolbox>;
+	@:optional var brush : Array<Brush>;
+	@:optional var geo : Array<Geo>;
+	@:optional var parallel : Array<Parallel>;
+	@:optional var parallelAxis : Array<ParallelAxis>;
+	@:optional var singleAxis : Array<SingleAxis>;
+
+	@:optional var timeline : Array<Timeline>;
+	@:optional var series : Array<Dynamic>;
+	// other
+	var markArea: Array<Dynamic>;
+	var markLine: Array<Dynamic>;
+	var markPoint: Array<Dynamic>;
+	var marker: Array<Dynamic>;
 }
 
 
-@:enum abstract Easing(String) to String{
-	var LINEAR = "linear";
-	var QUADRATICIN = "quadraticIn";
-	var QUADRATICOUT = "quadraticOut";
-	var QUADRATICINOUT = "quadraticInOut";
-	var CUBICIN = "cubicIn";
-	var CUBICOUT = "cubicOut";
-	var CUBICINOUT = "cubicInOut";
-	var QUARTICIN = "quarticIn";
-	var QUARTICOUT = "quarticOut";
-	var QUARTICINOUT = "quarticInOut";
-	var QUINTICIN = "quinticIn";
-	var QUINTICOUT = "quinticOut";
-	var QUINTICINOUT = "quinticInOut";
-	var SINUSOIDALIN = "sinusoidalIn";
-	var SINUSOIDALOUT = "sinusoidalOut";
-	var SINUSOIDALINOUT = "sinusoidalInOut";
-	var EXPONENTIALIN = "exponentialIn";
-	var EXPONENTIALOUT = "exponentialOut";
-	var EXPONENTIALINOUT = "exponentialInOut";
-	var CIRCULARIN = "circularIn";
-	var CIRCULAROUT = "circularOut";
-	var CIRCULARINOUT = "circularInOut";
-	var ELASTICIN = "elasticIn";
-	var ELASTICOUT = "elasticOut";
-	var ELASTICINOUT = "elasticInOut";
-	var BACKIN = "backIn";
-	var BACKOUT = "backOut";
-	var BACKINOUT = "backInOut";
-	var BOUNCEIN = "bounceIn";
-	var BOUNCEOUT = "bounceOut";
-	var BOUNCEINOUT = "bounceInOut";
-}
+
 
 /**
  https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation

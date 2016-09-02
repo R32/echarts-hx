@@ -7,6 +7,8 @@ Externs of [echarts v3.x](https://github.com/ecomfe/echarts) for Haxe
 
 QuickStart :
 
+* Requirements : **haxe** 3.2+ <http://build.haxe.org>
+
 ```haxe
 import js.Browser.document;
 
@@ -54,10 +56,13 @@ ETest.main();
 })();
 ```
 
+------
+
 IntelliSense（智能语法提示与自动完成）:
 
   ![IntelliSense png](www/Intellisense.png)
 
+------
 
 for `haxe.extern.EitherType` :
 
@@ -72,7 +77,9 @@ ec.on(ActionEvent.DATARANGESELECTED, function(param) {
 
 ## Status
 
-* [x] echarts + echartInstance : `js.Echarts`
+<http://echarts.baidu.com/api.html#echarts>
+
+* [x] echarts : `js.Echarts`
 
 * [x] action : `js.echarts.Action`
 
@@ -80,30 +87,39 @@ ec.on(ActionEvent.DATARANGESELECTED, function(param) {
 
 * [ ] options : `js.echarts.SetOptions`
 
+  - [x] MISC ATTRIBUTES :
+
   `package js.echarts.options` :
 
-  - [x] MISC ATTRIBUTES :
   - [x] title :
   - [x] legend :
   - [x] grid :
   - [x] xAxis :
   - [x] yAxis :
-  - [ ] polar :
-  - [ ] radiusAxis :
-  - [ ] angleAxis :
-  - [ ] radar :
-  - [ ] dataZoom :
-  - [ ] visualMap :
-  - [ ] tooltip :
-  - [ ] toolbox :
-  - [ ] brush :
-  - [ ] geo :
-  - [ ] parallel :
-  - [ ] parallelAxis :
-  - [ ] singleAxis :
-  - [ ] timeline :
+  - [x] polar :
+  - [x] radiusAxis :
+  - [x] angleAxis :
+  - [x] radar :
+  - [x] dataZoom :
+  - [x] visualMap :
+  - [x] tooltip :
+  - [x] toolbox :
+  - [x] brush :
+  - [x] geo :
+  - [x] parallel :
+  - [x] parallelAxis :
+  - [x] singleAxis :
+  - [x] timeline :
   - [ ] series :
-  - [x] textStyle : `Data.hx`
+
+Optional:
+
+* [ ] echarts.graphic()
+  - [x] LinearGradient
+  - [x] RadialGradient
+  - [ ] ......
+
+* [x] echarts.color : `js.echarts.Color`
 
 ### Difference
 

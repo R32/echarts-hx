@@ -1,5 +1,6 @@
 package js.echarts;
 
+import js.echarts.options.Data;
 
 @:enum abstract MouseEvent<T: haxe.Constraints.Function>(Event<T>) to Event<T> {
 	var CLICK : MouseEvent<MouseEventT->Void> = "click";
@@ -27,7 +28,7 @@ typedef MouseEventT = {
 	/**
 	 系列类型。值可能为：'line'、'bar'、'pie' 等。当 componentType 为 'series' 时有意义。
 	*/
-	var seriesType: String;
+	var seriesType: SeriesType;
 
 	/**
 	 系列在传入的 option.series 中的 index。当 componentType 为 'series' 时有意义。
@@ -52,7 +53,7 @@ typedef MouseEventT = {
 	/**
 	 传入的原始数据项
 	*/
-	var data: Dynamic; // TODO
+	var data: Dynamic;
 
 	/**
 	 sankey、graph 等图表同时含有 nodeData 和 edgeData 两种 data，
