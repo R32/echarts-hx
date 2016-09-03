@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 
 /**
 visualMap 是视觉映射组件，用于进行『视觉编码』，也就是将数据映射到视觉元素（视觉通道）

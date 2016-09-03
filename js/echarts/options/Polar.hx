@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 
 /**
 极坐标系，可以用于散点图和折线图。每个极坐标系拥有一个角度轴和一个半径轴。

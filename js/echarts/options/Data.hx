@@ -1,154 +1,14 @@
 package js.echarts.options;
 
-import haxe.extern.EitherType;
-
 #if (haxe_ver < 3.3)
 typedef Any = Dynamic;
 #end
 
-abstract Either3<T1, T2, T3>(Dynamic) from T1 from T2 from T3 to T1 to T2 to T3 {}
-
-
-typedef TextStyle = {
-	?color: String,
-	?fontStyle: FontStyle,
-	?fontWeight: FontWeight,
-	?fontFamily: String,
-	?fontSize: Float,
+@:enum abstract ValueLimit(String) to String {
+	var MIN = "min";
+	var MAX = "max";
+	var AVERAGE = "average";
 }
-
-/**
-- color: 坐标轴线线的颜色。
-- shadowBlur: 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
-- shadowColor: 阴影颜色
-- shadowOffsetX: 阴影水平方向上的偏移距离
-- shadowOffsetY: 阴影垂直方向上的偏移距离。
-- opacity: 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形
-*/
-typedef AreaStyle = {
-	?color: String,  //
-	?shadowBlur: Float,
-	?shadowColor: String,
-	?shadowOffsetX: Float,
-	?shadowOffsetY: Float,
-	?opacity: Float,
-}
-
-/**
-- width: 坐标轴线线宽。
-- type: 坐标轴线线的类型。
-*/
-typedef LineStyle = {
-	> AreaStyle,
-	?width: Float,
-	?type: LineType,
-}
-
-typedef BorderType = {
-	?color: String,
-	?borderColor: String,
-	?borderWidth: Int,
-}
-
-typedef IconStyle = {
-	?color: EitherType<String, js.echarts.graphic.Gradient>,
-	?borderColor: String, // #000
-	?borderWidth: Float,
-	?borderType: LineType,
-	?shadowBlur: Float,
-	?shadowColor: String,
-	?shadowOffsetX: Float,
-	?shadowOffsetY: Float,
-	?opacity: Float,
-}
-
-typedef Label = {
-	?show: Bool,
-	?textStyle: TextStyle
-}
-
-typedef Limit = {
-	?min: Float,
-	?max: Float,
-}
-
-typedef Animation = {
-	/**
-	 是否开启动画
-	*/
-	@:optional var animation : Bool;
-
-	/**
-	 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
-	*/
-	@:optional var animationThreshold : Float;
-
-	/**
-	 初始动画的时长。
-	*/
-	@:optional var animationDuration : Float;
-
-	/**
-	 初始动画的缓动效果
-	*/
-	@:optional var animationEasing : Easing;
-
-	/**
-	 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
-	*/
-	@:optional var animationDelay : EitherType<Float, Int->Float>;
-
-	/**
-	 数据更新动画的时长。
-	*/
-	@:optional var animationDurationUpdate : Float;// 300
-
-	/**
-	 数据更新动画的缓动效果。
-	*/
-	@:optional var animationEasingUpdate : Easing;
-
-	/**
-	 数据更新动画的延迟，支持回调函数，
-	 可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
-	*/
-	@:optional var animationDelayUpdate : EitherType<Float, Int->Float>;
-}
-
-
-typedef AxisPointer = {
-
-	> Animation,
-	/**
-	 指示器类型。
-	*/
-	var type: AxisPointerType;
-
-	/**
-	 指示器的坐标轴。可以是 'x', 'y', 'radius', 'angle'。默认取类目轴或者时间轴
-	*/
-	@:optional var axis : AxisPointerAxis;
-
-	/**
-	 axisPointer.type 为 'line' 时有效。
-	*/
-	@:optional var lineStyle : LineStyle;
-
-	/**
-	 axisPointer.type 为 'cross' 时有效。
-	*/
-	@:optional var crossStyle : {
-		> LineStyle,
-		@:optional var textStyle: TextStyle;
-	};
-
-	/**
-	 axisPointer.type 为 'shadow' 时有效。
-	*/
-	@:optional var shadowStyle : AreaStyle;
-
-}
-
 
 @:enum abstract LinkTarget(String) to String {
 	var BLANK = "blank";
@@ -225,6 +85,21 @@ for Tooltip
 	var BOTTOM = "bottom";
 }
 
+@:enum abstract MarkPosition(String) to String {
+	var TOP = "top";
+	var LEFT = "left";
+	var RIGHT = "right";
+	var BOTTOM = "bottom";
+	var INSIDE = "inside";
+	var INSIDELEFT = "insideLeft";
+	var INSIDERIGHT = "insideRight";
+	var INSIDETOP = "insideTop";
+	var INSIDEBOTTOM = "insideBottom";
+	var INSIDETOPLEFT = "insideTopLeft";
+	var INSIDEBOTTOMLEFT = "insideBottomLeft";
+	var INSIDETOPRIGHT = "insideTopRight";
+	var INSIDEBOTTOMRIGHT = "insideBottomRight";
+}
 
 @:enum abstract AxisType(String) to String {
 	/**
@@ -284,9 +159,6 @@ for Tooltip
 	var AXIS = "axis";
 }
 
-/**
-echars 3.0
-*/
 @:enum abstract TriggerOn(String) to String {
 	var MOUSEMOVE = "mousemove";
 	var CLICK = "click";
@@ -321,6 +193,16 @@ echars 3.0
 	var AUTO = "auto";
 }
 
+/**
+ toolbox feature
+*/
+@:enum abstract MagicType(String) to String {
+	var LINE = "line";
+	var BAR = "bar";
+	var STACK = "stack";
+	var TILED = "tiled";
+}
+
 @:enum abstract ToolBrushType(String) to String {
 	var RECT = "rect";
 	var POLYGON = "polygon";
@@ -353,7 +235,6 @@ echars 3.0
 	var ALL = "all";
 }
 
-
 @:enum abstract ThrottleType(String) to String {
 	/**
 	 表示只有停止动作了（即一段时间没有操作了），才会触发事件。时间阈值由 brush.throttleDelay 指定。
@@ -373,18 +254,6 @@ echars 3.0
 	var DIAMOND = "diamond";
 	var PIN = "pin";
 	var ARROW = "arrow";
-	//var EMPTYCIRCLE = "emptyCircle";
-}
-
-typedef SymbolDt = {
-	?symbol: EitherType<String, SymbolType>, // 图元的图形类别 ??? TODO: 未验证 "none", "circle"
-	?symbolSize: Float,     // 图元的大小
-	?color: String,         // 图元的颜色
-	?colorAlpha: Float,     // 图元的颜色的透明度
-	?opacity: Float,        // 图元以及其附属物（如文字标签）的透明度
-	?colorLightness: Float, // 颜色的明暗度
-	?colorSaturation: Float,// 颜色的饱和度
-	?colorHue: Float,       // 颜色的色调
 }
 
 @:enum abstract SeriesType(String) to String {
@@ -440,3 +309,36 @@ typedef SymbolDt = {
 	var BOUNCEOUT = "bounceOut";
 	var BOUNCEINOUT = "bounceInOut";
 }
+
+/**
+ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
+*/
+@:enum abstract BlendMode(String) to String{
+	var SOURCE_OVER = "source-over";
+	var SOURCE_IN = "source-in";
+	var SOURCE_OUT = "source-out";
+	var SOURCE_ATOP = "source-atop";
+	var DESTINATION_OVER = "destination-over";
+	var DESTINATION_IN = "destination-in";
+	var DESTINATION_OUT = "destination-out";
+	var DESTINATION_ATOP = "destination-atop";
+	var LIGHTER = "lighter";
+	var COPY = "copy";
+	var XOR = "xor";
+	var MULTIPLY = "multiply";
+	var SCREEN = "screen";
+	var OVERLAY = "overlay";
+	var DARKEN = "darken";
+	var LIGHTEN = "lighten";
+	var COLOR_DODGE = "color-dodge";
+	var COLOR_BURN = "color-burn";
+	var HARD_LIGHT = "hard-light";
+	var SOFT_LIGHT = "soft-light";
+	var DIFFERENCE = "difference";
+	var EXCLUSION = "exclusion";
+	var HUE = "hue";
+	var SATURATION = "saturation";
+	var COLOR = "color";
+	var LUMINOSITY = "luminosity";
+}
+

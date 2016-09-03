@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 
 typedef AxisName = {
 
@@ -237,7 +238,7 @@ typedef AxisBase = {
 	 }, '周二', '周三', '周四', '周五', '周六', '周日']
 	 ```
 	*/
-	@:optional var data: Array<EitherType<Any, AxisData>> ;
+	@:optional var data: Array<Dynamic> ;
 }
 
 typedef Axis = {
@@ -250,7 +251,7 @@ typedef Axis = {
 	@:optional var splitLine: {
 		?show: Bool,    // true
 		?interval: EitherType<Int, Int -> String -> Bool> ,
-		?lineStyle: LineStyle
+		?lineStyle: LineStyle<Array<String>>
 	};
 
 	/**
@@ -259,7 +260,7 @@ typedef Axis = {
 	@:optional var splitArea: {
 		?show: Bool,    // true
 		?interval: EitherType<Int, Int -> String -> Bool> ,
-		?areaStyle: AreaStyle
+		?areaStyle: AreaStyle<Array<String>>
 	};
 
 	/**
@@ -289,7 +290,7 @@ typedef Axis = {
 
 typedef AxisLine = {
 	?show: Bool,  // true
-	?lineStyle: LineStyle
+	?lineStyle: LineStyle<Color>
 }
 
 typedef XYAxisLine = {
@@ -303,7 +304,7 @@ typedef AxisTick = {
 	?interval: EitherType<Int, Int -> String -> Bool> ,
 	?inside: Bool,         // false
 	?length: Int,          // 5
-	?lineStyle: LineStyle
+	?lineStyle: LineStyle<Color>
 }
 
 typedef AxisData = {

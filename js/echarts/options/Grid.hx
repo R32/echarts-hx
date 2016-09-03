@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 
 /**
 直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴。

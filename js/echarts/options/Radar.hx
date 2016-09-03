@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 import js.echarts.options.Axis;
 
 
@@ -98,7 +99,7 @@ typedef Radar = {
 		?alignWithLabel: Bool, // false
 		?inside: Bool,         // false
 		?length: Int,          // 5
-		?lineStyle: LineStyle
+		?lineStyle: LineStyle<Color>
 	};
 
 	/**
@@ -111,7 +112,7 @@ typedef Radar = {
 	*/
 	@:optional var splitLine: {
 		?show: Bool,    // true
-		?lineStyle: LineStyle
+		?lineStyle: LineStyle<Array<String>>
 	};
 
 	/**
@@ -119,7 +120,7 @@ typedef Radar = {
 	*/
 	@:optional var splitArea: {
 		?show: Bool,    // true
-		?areaStyle: AreaStyle
+		?areaStyle: AreaStyle<Array<String>>
 	};
 
 	/**

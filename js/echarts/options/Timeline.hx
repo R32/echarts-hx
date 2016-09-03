@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 
 /**
  timeline 组件，提供了在多个 ECharts option 间进行切换、播放等操作的功能。
@@ -146,7 +147,7 @@ typedef Timeline = {
 	/**
 	`color: #304654, width: 2, type: solid`
 	*/
-	@:optional var lineStyle: LineStyle;
+	@:optional var lineStyle: LineStyle<Color>;
 
 	/**
 	 轴的文本标签。有 normal 和 emphasis 两个状态，normal 是文本正常的样式，
@@ -154,18 +155,14 @@ typedef Timeline = {
 	 的时候会使用 emphasis 作为文本的样式。
 	*/
 	@:optional var label: {
+		> NormalEmphasis<LabelEx>,
 		?position: EitherType<Float, HVAlign>,
-		?normal: LabelEx,
-		?emphasis: LabelEx,
 	};
 
 	/**
 	 timeline 图形样式，
 	*/
-	@:optional var itemStyle: {
-		?normal: IconStyle,
-		?emphasis: IconStyle,
-	};
+	@:optional var itemStyle: NormalEmphasis<IconStyle>;
 
 	/**
 	 『当前项』（checkpoint）的图形样式。
@@ -189,10 +186,7 @@ typedef Timeline = {
 }
 
 typedef CheckpointStyle = {
-	?symbol: EitherType<String, SymbolType>,  // circle
-	?symbolSize: EitherType<Int, Array<Int>>, // 13
-	?symbolRotate: Float,
-	?symbolOffset: Array<EitherType<Int, String>>,
+	> Symbol<Array<Int>>,
 	?color: String,       // #c23531
 	?borderWidth: Int,    // 5
 	?borderColor: String, // rgba(194,53,49, 0.5)
@@ -215,13 +209,18 @@ typedef ControlStyle = {
 	?stopIcon: String,
 	?prevIcon: String,
 	?nextIcon: String,
-	?normal: BorderType,
-	?emphasis: BorderType,
+	?normal: Border,
+	?emphasis: Border,
 }
 
-typedef LabelEx = {
+private typedef Border = {
+	?color: String,
+	?borderColor: String,
+	?borderWidth: Int,
+}
+
+private typedef LabelEx = {
 	> Label,
-	?show: Bool,     // true
 	?interval: EitherType<String, Float>, // auto
 	?rotate: Float,  // 旋转角度。正值表示逆时针旋转
 	?formatter: EitherType<String, Any->Int->String>

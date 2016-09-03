@@ -2,6 +2,7 @@ package js.echarts;
 
 import js.echarts.options.*;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 import haxe.extern.EitherType;
 
 typedef SetOptions = {
@@ -34,9 +35,9 @@ typedef SetOptions = {
 	@:optional var parallel : EitherType<Parallel, Array<Parallel>>;
 	@:optional var parallelAxis : Array<ParallelAxis>;
 	@:optional var singleAxis : Array<SingleAxis>;
+	@:optional var timeline : EitherType<Timeline, Array<Timeline>>;
 	// TODO:
-	@:optional var timeline : EitherType<Timeline, Timeline>;
-	@:optional var series : Array<Dynamic>;
+	@:optional var series : EitherType<Dynamic, Array<Dynamic>>;
 
 }
 
@@ -68,47 +69,12 @@ typedef GetOptions = {
 	@:optional var parallel : Array<Parallel>;
 	@:optional var parallelAxis : Array<ParallelAxis>;
 	@:optional var singleAxis : Array<SingleAxis>;
-
 	@:optional var timeline : Array<Timeline>;
+
 	@:optional var series : Array<Dynamic>;
 	// other
-	var markArea: Array<Dynamic>;
-	var markLine: Array<Dynamic>;
-	var markPoint: Array<Dynamic>;
+	var markArea: Array<MarkArea>;
+	var markLine: Array<MarkLine>;
+	var markPoint: Array<MarkPoint>;
 	var marker: Array<Dynamic>;
-}
-
-
-
-
-/**
- https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
-*/
-@:enum abstract BlendMode(String) to String{
-	var SOURCE_OVER = "source-over";
-	var SOURCE_IN = "source-in";
-	var SOURCE_OUT = "source-out";
-	var SOURCE_ATOP = "source-atop";
-	var DESTINATION_OVER = "destination-over";
-	var DESTINATION_IN = "destination-in";
-	var DESTINATION_OUT = "destination-out";
-	var DESTINATION_ATOP = "destination-atop";
-	var LIGHTER = "lighter";
-	var COPY = "copy";
-	var XOR = "xor";
-	var MULTIPLY = "multiply";
-	var SCREEN = "screen";
-	var OVERLAY = "overlay";
-	var DARKEN = "darken";
-	var LIGHTEN = "lighten";
-	var COLOR_DODGE = "color-dodge";
-	var COLOR_BURN = "color-burn";
-	var HARD_LIGHT = "hard-light";
-	var SOFT_LIGHT = "soft-light";
-	var DIFFERENCE = "difference";
-	var EXCLUSION = "exclusion";
-	var HUE = "hue";
-	var SATURATION = "saturation";
-	var COLOR = "color";
-	var LUMINOSITY = "luminosity";
 }

@@ -2,7 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
-
+import js.echarts.options.Base;
 
 /**
 标题组件，包含主标题和副标题。

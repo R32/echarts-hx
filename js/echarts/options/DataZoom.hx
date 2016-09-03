@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 
 /**
 用于区域缩放，从而能自由关注细节的数据信息，或者概览数据整体，或者去除离群点的影响。
@@ -130,9 +131,9 @@ typedef Slider = {
 
 	@:optional var dataBackground: {
 		// opacity: 0.3, color: #2f4554, width: 0.5
-		?lineStyle: LineStyle,
+		?lineStyle: LineStyle<Color>,
 		// opacity: 0.3, color: rgba(47,69,84,0.3,
-		?areaStyle: AreaStyle
+		?areaStyle: AreaStyle<Color>
 	};
 
 	/**

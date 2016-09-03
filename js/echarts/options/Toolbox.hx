@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 import haxe.Constraints.Function;
 
 /**
@@ -50,10 +51,7 @@ typedef Toolbox = {
 	*/
 	@:optional var feature: Feature;
 
-	@:optional var iconStyle: {
-		?normal: IconStyle,
-		?emphasis: IconStyle
-	};
+	@:optional var iconStyle: NormalEmphasis<IconStyle>;
 
 	/**
 	 所有图形的 zlevel 值。大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
@@ -127,10 +125,7 @@ typedef FRestore = {
 	@:optional var show:Bool;
 	@:optional var title:String;
 	@:optional var icon:String;
-	@:optional var iconStyle : {
-		?normal: IconStyle,
-		?emphasis: IconStyle
-	};
+	@:optional var iconStyle : NormalEmphasis<IconStyle>;
 }
 
 typedef FSaveAsImage = {
@@ -248,11 +243,7 @@ typedef FDataZoom = {
 		?back: String
 	};
 
-	@:optional var iconStyle : {
-		?normal: IconStyle,
-		?emphasis: IconStyle
-	};
-
+	@:optional var iconStyle : NormalEmphasis<IconStyle>;
 	/**
 	指定 哪些 xAxis 被控制。如果缺省则控制所有的x轴。
 	如果设置为 false 则不控制任何x轴。如果设置成 3 则控制 axisIndex 为 3 的x轴。
@@ -264,6 +255,13 @@ typedef FDataZoom = {
 
 }
 
+
+private typedef FMagicSub<T> = {
+	?line: T,
+	?bar: T,
+	?stack: T,
+	?tiled: T,
+}
 
 /**
 动态类型切换 示例
@@ -278,42 +276,28 @@ typedef FMagicType = {
 	*/
 	var type: Array<MagicType>;
 
-	@:optional var title:{
-		?line: String,
-		?bar: String,
-		?stack: String,
-		?tiled: String,
-	};
+	@:optional var title: FMagicSub<String>;
 
 
-	@:optional var icon:{
-		?line: String,
-		?bar: String,
-		?stack: String,
-		?tiled: String,
-	};
+	@:optional var icon: FMagicSub<String>;
 
-	@:optional var iconStyle : {
-		?normal: IconStyle,
-		?emphasis: IconStyle
-	};
+	@:optional var iconStyle : NormalEmphasis<IconStyle>;
 
 	/**
 	 各个类型的专有配置项。在切换到某类型的时候会合并相应的配置项
 	*/
-	@:optional var option : {
-		?line: {},
-		?bar: {},
-		?stack: {},
-		?tiled: {},
-	};
+	@:optional var option : FMagicSub<{}>;
 
-	@:optional var seriesIndex : {
-		?line: Array<{}>,
-		?bar: Array<{}>,
-		?stack: Array<{}>,
-		?tiled: Array<{}>,
-	};
+	@:optional var seriesIndex : FMagicSub<Array<{}>>;
+}
+
+private typedef FBrushIcon = {
+	?rect: String,
+	?polygon: String,
+	?lineX: String,
+	?lineY: String,
+	?keep: String,
+	?clear: String,
 }
 
 typedef FBrush = {
@@ -327,29 +311,6 @@ typedef FBrush = {
 	- 'clear'：清空所有选框。
 	*/
 	var type: Array<ToolBrushType>;
-
-	@:optional var icon:{
-		?rect: String,
-		?polygon: String,
-		?lineX: String,
-		?lineY: String,
-		?keep: String,
-		?clear: String,
-	};
-
-	@:optional var title:{
-		?rect: String,
-		?polygon: String,
-		?lineX: String,
-		?lineY: String,
-		?keep: String,
-		?clear: String,
-	};
-}
-
-@:enum abstract MagicType(String) to String {
-	var LINE = "line";
-	var BAR = "bar";
-	var STACK = "stack";
-	var TILED = "tiled";
+	@:optional var icon: FBrushIcon;
+	@:optional var title: FBrushIcon;
 }

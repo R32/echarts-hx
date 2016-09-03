@@ -2,6 +2,7 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
 
 /**
  区域选择组件，用户可以选择图中一部分数据，从而便于向用户展示被选中数据，

@@ -1,7 +1,5 @@
 package js.echarts.options;
 
-import haxe.extern.EitherType;
-import js.echarts.options.Data;
 import js.echarts.options.Axis;
 
 /**

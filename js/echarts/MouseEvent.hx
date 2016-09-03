@@ -18,42 +18,8 @@ import js.echarts.options.Data;
  具体见各个图表类型的 label formatter 回调函数的 params。
 */
 typedef MouseEventT = {
-	/**
-	 当前点击的图形元素所属的组件名称
 
-	 其值如 'series'、'markLine'、'markPoint'、'timeLine' 等。
-	*/
-	var componentType: String;
-
-	/**
-	 系列类型。值可能为：'line'、'bar'、'pie' 等。当 componentType 为 'series' 时有意义。
-	*/
-	var seriesType: SeriesType;
-
-	/**
-	 系列在传入的 option.series 中的 index。当 componentType 为 'series' 时有意义。
-	*/
-	var seriesIndex: Int;
-
-	/**
-	 系列名称。当 componentType 为 'series' 时有意义。
-	*/
-	var seriesName: String;
-
-	/**
-	 数据名，类目名
-	*/
-	var name: String;
-
-	/**
-	 数据在传入的 data 数组中的 index
-	*/
-	var dataIndex: Int;
-
-	/**
-	 传入的原始数据项
-	*/
-	var data: Dynamic;
+	> js.echarts.options.Base.Params<Dynamic>,
 
 	/**
 	 sankey、graph 等图表同时含有 nodeData 和 edgeData 两种 data，
@@ -62,15 +28,5 @@ typedef MouseEventT = {
 
 	 其他大部分图表中只有一种 data，dataType 无意义。
 	*/
-	var dataType: String;
-
-	/**
-	 传入的数据值
-	*/
-	var value: haxe.extern.EitherType<Float, Array<Float>>;
-
-	/**
-	 数据图形的颜色。当 componentType 为 'series' 时有意义。
-	*/
-	var color: String;
+	@:optional var dataType: String;
 }

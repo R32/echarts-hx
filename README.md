@@ -114,7 +114,7 @@ ec.on(ActionEvent.DATARANGESELECTED, function(param) {
 
 Optional:
 
-* [ ] echarts.graphic()
+* [ ] echarts.graphic
   - [x] LinearGradient
   - [x] RadialGradient
   - [ ] ......
@@ -124,7 +124,3 @@ Optional:
 ### Difference
 
 * `action.tooltip.showTip` is separated into an `SHOWTIPXY` and `SHOWTIP`, However, they are actually the same value
-
-## Helpers
-
-* [GeoJSON for Haxe](https://github.com/kevinresol/geojson)

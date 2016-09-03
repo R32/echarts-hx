@@ -2,9 +2,12 @@ package js.echarts.options;
 
 import haxe.extern.EitherType;
 import js.echarts.options.Data;
+import js.echarts.options.Base;
+
 /**
-* ...
-* @author
+地理坐标系组件。
+
+地理坐标系组件用于地图的绘制，支持在地理坐标系上绘制散点图，线集。
 */
 typedef Geo = {
 	/**
@@ -77,7 +80,7 @@ typedef Geo = {
 	/**
 	 滚轮缩放的极限控制，通过min, max最小和最大的缩放值，默认的缩放为1。
 	*/
-	@:optional var scaleLimit: Limit;
+	@:optional var scaleLimit: MinMax<Float>;
 
 	/**
 	 自定义地区的名称映射，如：`{"China": "中国"}`
@@ -96,20 +99,14 @@ typedef Geo = {
 	 为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，
 	 并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
 	*/
-	@:optional var label: {
-		?normal: Label,
-		?emphasis: Label,
-	};
+	@:optional var label: NormalEmphasis<Label>;
 
 	/**
 	 地图区域的多边形 图形样式，有 normal 和 emphasis 两个状态。
 	 normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，
 	 比如在鼠标悬浮或者图例联动高亮时。
 	*/
-	@:optional var itemStyle: {
-		?normal: IconStyle ,
-		?emphasis: IconStyle
-	};
+	@:optional var itemStyle: NormalEmphasis<IconStyle>;
 
 	/**
 	 zlevel 值。`default: 0`
@@ -184,19 +181,10 @@ typedef Region = {
 
 	@:optional var selected: Bool; // false
 
-	@:optional var itemStyle: {
-		?normal: {
-			> IconStyle,
-			areaColor: String
-		} ,
-		?emphasis: {
-			> IconStyle,
-			areaColor: String
-		}
-	};
+	@:optional var itemStyle: NormalEmphasis<{
+		> IconStyle,
+		areaColor: String,
+	}>;
 
-	@:optional var label: {
-		?normal: Label,
-		?emphasis: Label
-	};
+	@:optional var label: NormalEmphasis<Label>;
 }

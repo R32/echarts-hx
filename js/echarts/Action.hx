@@ -1,6 +1,7 @@
 package js.echarts;
 
 import haxe.extern.EitherType;
+import js.echarts.options.Data;
 
 @:enum abstract Action<T: haxe.Constraints.Function>(Event<T>) to Event<T> {
 	var HIGHLIGHT: Action<AHighlight->Void> = "highlight";
@@ -215,11 +216,4 @@ typedef ABrush = {
 		@:optional var xAxisIndex: Int;
 		@:optional var yAxisIndex: Int;
 	}>;
-}
-
-@:enum abstract BrushType(String) to String{
-	var POLYGON = "polygon";
-	var RECT = "rect";
-	var LINEX = "lineX";
-	var LINEY = "lineY";
 }
