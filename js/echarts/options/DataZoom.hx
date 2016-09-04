@@ -34,14 +34,14 @@ typedef Inside = {
 
 	 `default: null`
 	*/
-	@:optional var xAxisIndex: EitherType<Int, Array<Int>>;
+	@:optional var xAxisIndex: OrArray<Int>;
 
 	/**
 	 设置 dataZoom-inside 组件控制的 y 轴
 
 	 `default: null`
 	*/
-	@:optional var yAxisIndex: EitherType<Int, Array<Int>>;
+	@:optional var yAxisIndex: OrArray<Int>;
 
 	/**
 	 dataZoom 的运行原理是通过 数据过滤 来达到 数据窗口缩放 的效果。
@@ -165,7 +165,7 @@ typedef Slider = {
 
 	 `default: '100%'`
 	*/
-	@:optional var handleSize: EitherType<String, Float>;
+	@:optional var handleSize: Value;
 
 	/**
 	 手柄的样式配置
@@ -249,22 +249,22 @@ typedef Slider = {
 
 	 `default: "auto"`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
 
 	 `default: "auto"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 }

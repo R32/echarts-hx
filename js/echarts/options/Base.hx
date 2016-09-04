@@ -4,9 +4,12 @@ import haxe.extern.EitherType;
 import haxe.Constraints.Function;
 import js.echarts.options.Data;
 
-
 abstract Either3<T1, T2, T3>(Dynamic) from T1 from T2 from T3 to T1 to T2 to T3 { }
 
+typedef OrArray<T> = EitherType<T, Array<T>>
+
+@:coreType @:runtimeValue abstract Value from String from Float from Int to String to Float to Int {
+}
 
 typedef Color = EitherType<String, js.echarts.graphic.Gradient>;
 
@@ -108,21 +111,21 @@ typedef Rect = {
 	/**
 	 像素数值 + 百分比字符串: "20%", 或 "auto"
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 	/**
 	 像素数值 + 百分比字符串: "20%", 或 "auto",
 	*/
-	@:optional var right: EitherType<Float, String>;
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var right: Value;
+	@:optional var bottom: Value;
 }
 
 typedef WidthHeight = {
 	/**
 	 像素数值 + 百分比字符串: "20%", 或 "auto"
 	*/
-	@:optional var width: EitherType<Float, String>;
-	@:optional var height: EitherType<Float, String>;
+	@:optional var width: Value;
+	@:optional var height: Value;
 }
 
 typedef Animation = {
@@ -229,7 +232,7 @@ typedef Symbol<T> = {
 	/**
 	 相对于原本位置的偏移, 例如 [0, '50%'] 就是把自己向上移动了一半的位置
 	*/
-	@:optional var symbolOffset: Array<EitherType<Int, String>>;
+	@:optional var symbolOffset: Array<Value>;
 }
 
 
@@ -274,7 +277,7 @@ typedef Params<T> = {
 	/**
 	 传入的数据值
 	*/
-	var value: haxe.extern.EitherType<Float, Array<Float>>;
+	var value: OrArray<Float>;
 
 	/**
 	 数据图形的颜色。当 componentType 为 'series' 时有意义。
@@ -295,12 +298,12 @@ private typedef MarkDataBase = {
 	@:optional var valueIndex: Int;
 	@:optional var valueDim: String;
 	@:optional var coord: Array<Any>; // TODO: String
-	@:optional var x: EitherType<Float, String>; // "20%" or 20
-	@:optional var y: EitherType<Float, String>; // "20%" or 20
+	@:optional var x: Value; // "20%" or 20
+	@:optional var y: Value; // "20%" or 20
 	@:optional var value: Float;
 }
 
-private typedef TMarkPosition = EitherType<MarkPosition, Array<EitherType<Float, String>> >;
+private typedef TMarkPosition = EitherType<MarkPosition, Array<Value> >;
 
 private typedef MarkPointLabel = {
 	> Label,
@@ -359,7 +362,7 @@ typedef MarkLine = {
 	/**
 	 标线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。
 	*/
-	@:optional var symbolSize: EitherType<Int, Array<Int>>;
+	@:optional var symbolSize: OrArray<Int>;
 	@:optional var precision: Float;
 	@:optional var tooltip: Tooltip;
 	@:optional var label: NormalEmphasis<MarkLineLabel>;

@@ -55,7 +55,7 @@ typedef VisualMap = {
 	/**
 	 指定取哪个系列的数据，即哪个系列的 series.data。
 	*/
-	@:optional var seriesIndex: EitherType<Int, Array<Int>>;
+	@:optional var seriesIndex: OrArray<Int>;
 
 	/**
 	 打开 hoverLink 功能时，鼠标悬浮到 visualMap 组件上时，
@@ -103,22 +103,22 @@ typedef VisualMap = {
 
 	 `default: 0`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: 0`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 	/**
 	 如何放置 visualMap 组件，水平（'horizontal'）或者竖直（'vertical'）。
@@ -132,7 +132,7 @@ typedef VisualMap = {
 
 	 `default: 5`
 	*/
-	@:optional var padding: EitherType<Float, Array<Float>>;
+	@:optional var padding: OrArray<Float>;
 
 	/**
 	 背景色。

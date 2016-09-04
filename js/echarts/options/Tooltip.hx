@@ -72,7 +72,7 @@ typedef Tooltip = {
 	 position: TPosition
 	 ```
 	*/
-	@:optional var position: Either3<TPosition, Function, Array<EitherType<String, Int>>>;
+	@:optional var position: Either3<TPosition, Function, Array<Value>>;
 
 
 	/**
@@ -115,7 +115,7 @@ typedef Tooltip = {
 
 	 `default: 5`
 	*/
-	@:optional var padding: EitherType<Float, Array<Float>>;
+	@:optional var padding: OrArray<Float>;
 
 	/**
 	 提示框浮层的文本样式。

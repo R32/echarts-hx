@@ -123,22 +123,22 @@ typedef Geo = {
 
 	 `default: auto`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: auto`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 	/**
 	 layoutCenter 和 layoutSize 提供了除了 left/right/top/bottom/width/height 之外的布局手段。
@@ -160,7 +160,7 @@ typedef Geo = {
 	/**
 	 地图的大小，见 layoutCenter。支持相对于屏幕宽高的百分比或者绝对的像素大小。
 	*/
-	@:optional var layoutSize: EitherType<Float, String>;
+	@:optional var layoutSize: Value;
 
 	/**
 	 地图指定区域的具体描述，可以用与自定义部分区域的样式，选择指定的区域。

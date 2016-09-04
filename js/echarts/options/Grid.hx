@@ -13,6 +13,28 @@ import js.echarts.options.Base;
 除下下边属性， grid 使用 x, y 值来描述其所在 grid 中的位置, x2, y2
 */
 typedef Grid = {
+	@:optional var x: Value;
+	@:optional var x1: Value;
+	@:optional var x2: Value;
+	@:optional var x3: Value;
+	@:optional var x4: Value;
+	@:optional var x5: Value;
+	@:optional var x6: Value;
+	@:optional var x7: Value;
+	@:optional var x8: Value;
+	@:optional var x9: Value;
+	@:optional var x10: Value;
+	@:optional var y: Value;
+	@:optional var y1: Value;
+	@:optional var y2: Value;
+	@:optional var y3: Value;
+	@:optional var y4: Value;
+	@:optional var y5: Value;
+	@:optional var y6: Value;
+	@:optional var y7: Value;
+	@:optional var y8: Value;
+	@:optional var y9: Value;
+	@:optional var y10: Value;
 
 	/**
 	 `default: false`
@@ -50,34 +72,34 @@ typedef Grid = {
 
 	 `default: "auto"`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: 60`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
 
 	 `default: "10%"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: 60`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var width: EitherType<Float, String>;
+	@:optional var width: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var height: EitherType<Float, String>;
+	@:optional var height: Value;
 
 	/**
 	 grid 区域是否包含坐标轴的刻度标签，在无法确定坐标轴标签的宽度，

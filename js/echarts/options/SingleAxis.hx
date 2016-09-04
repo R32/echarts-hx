@@ -17,33 +17,33 @@ typedef SingleAxis = {
 
 	 `default: auto`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "5%"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 `default: "5%"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: 5%`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var width: EitherType<Float, String>;
+	@:optional var width: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var height: EitherType<Float, String>;
+	@:optional var height: Value;
 
 	/**
 	 如何放置 visualMap 组件，水平（'horizontal'）或者竖直（'vertical'）。

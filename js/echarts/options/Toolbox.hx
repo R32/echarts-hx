@@ -79,34 +79,34 @@ typedef Toolbox = {
 
 	 `default: "auto"`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
 
 	 `default: "auto"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var width: EitherType<Float, String>;
+	@:optional var width: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var height: EitherType<Float, String>;
+	@:optional var height: Value;
 }
 
 typedef Feature = {

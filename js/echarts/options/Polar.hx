@@ -37,7 +37,7 @@ typedef Polar = {
 
 	`default: ["50%", "50%"]`
 	*/
-	@:optional var center: Array<EitherType<Int, String>>;
+	@:optional var center: Array<Value>;
 
 	/**
 	半径，TODO: 文档是否是错的???

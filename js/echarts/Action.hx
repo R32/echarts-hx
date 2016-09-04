@@ -1,6 +1,7 @@
 package js.echarts;
 
 import haxe.extern.EitherType;
+import js.echarts.options.Base;
 import js.echarts.options.Data;
 
 @:enum abstract Action<T: haxe.Constraints.Function>(Event<T>) to Event<T> {
@@ -33,7 +34,12 @@ typedef ActionBase<T> = {
 	var type: Action<T->Void>;
 }
 
-
+private typedef SeriesParam = {
+	@:optional var seriesIndex: OrArray<Int>;     // 系列 index，可以是一个数组指定多个系列
+	@:optional var seriesName: OrArray<String>;// 系列名称，可以是一个数组指定多个系列
+	@:optional var dataIndex: Int; // 数据的 index
+	@:optional var name: String;   // 数据的名称
+}
 //// highlight
 
 /**
@@ -41,11 +47,7 @@ typedef ActionBase<T> = {
 */
 typedef AHighlight = {
 	> ActionBase<AHighlight>,
-	@:optional var batch: Array<AHighlight>;
-	@:optional var seriesIndex: EitherType<Int, Array<Int>>;     // 系列 index，可以是一个数组指定多个系列
-	@:optional var seriesName: EitherType<String, Array<String>>;// 系列名称，可以是一个数组指定多个系列
-	@:optional var dataIndex: Int; // 数据的 index
-	@:optional var name: String;   // 数据的名称
+	> SeriesParam,
 }
 
 /**
@@ -53,11 +55,8 @@ typedef AHighlight = {
 */
 typedef ADownplay = {
 	> ActionBase<ADownplay>,
+	> SeriesParam,
 	@:optional var batch: Array<AHighlight>;
-	@:optional var seriesIndex: EitherType<Int, Array<Int>>;
-	@:optional var seriesName: EitherType<String, Array<String>>;
-	@:optional var dataIndex: Int;
-	@:optional var name: String;
 }
 
 
@@ -173,10 +172,7 @@ typedef ARestore = {
 */
 typedef APie = {
 	> ActionBase<APie>,
-	@:optional var seriesIndex: EitherType<Int, Array<Int>>;
-	@:optional var seriesName: EitherType<String, Array<String>>;
-	@:optional var dataIndex: Int;
-	@:optional var name: String;
+	> SeriesParam,
 }
 
 /**
@@ -184,10 +180,7 @@ typedef APie = {
 */
 typedef AGeo = {
 	> ActionBase<AGeo>,
-	@:optional var seriesIndex: EitherType<Int, Array<Int>>;
-	@:optional var seriesName: EitherType<String, Array<String>>;
-	@:optional var dataIndex: Int;
-	@:optional var name: String;
+	> SeriesParam,
 }
 
 /**
@@ -195,10 +188,7 @@ typedef AGeo = {
 */
 typedef AMap = {
 	> ActionBase<AMap>,
-	@:optional var seriesIndex: EitherType<Int, Array<Int>>;
-	@:optional var seriesName: EitherType<String, Array<String>>;
-	@:optional var dataIndex: Int;
-	@:optional var name: String;
+	> SeriesParam,
 }
 
 /**

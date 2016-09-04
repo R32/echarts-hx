@@ -26,32 +26,32 @@ typedef Parallel = {
 
 	 `default: auto`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: 60`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 `default: 80`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: 60`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var width: EitherType<Float, String>;
+	@:optional var width: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var height: EitherType<Float, String>;
+	@:optional var height: Value;
 
 	/**
 	 布局方式, 'horizontal'：水平排布各个坐标轴。'vertical'：竖直排布各个坐标轴。

@@ -72,7 +72,7 @@ typedef Title = {
 
 	 `default: 5`
 	*/
-	@:optional var padding: EitherType<Float, Array<Float>>;
+	@:optional var padding: OrArray<Float>;
 
 	/**
 	 主副标题之间的间距。
@@ -112,24 +112,24 @@ typedef Title = {
 
 	 `default: "auto"`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
 
 	 `default: "auto"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 	/**
 	 标题背景色。 例: 'rgb(128, 128, 128)' | 'rgba(128, 128, 128, 0.5)' | '#ccc'

@@ -43,7 +43,7 @@ extern class Echarts{
 	/**
 	 获取 ECharts 实例容器的 dom 节点。
 	*/
-	function getDom():EitherType<js.html.DivElement, js.html.CanvasElement>;
+	function getDom(): Element;
 
 
 	/**
@@ -82,7 +82,7 @@ extern class Echarts{
 	 })
 	 ```
 	*/
-	function getOption():js.echarts.GetOptions;
+	function getOption(): GetOptions;
 
 	/**
 	 改变图表尺寸，在容器大小发生改变时需要手动调用。
@@ -134,7 +134,7 @@ extern class Echarts{
 	 如果事件是外部 dispatchAction 后触发，并且 action 中有 batch 属性触发批量的行为，
 	 则相应的响应事件参数里也会把属性都放在 batch 属性中。
 	*/
-	function on<T:Function>(eventName: js.echarts.Event<T>, handler: T, ?context: {}):Void;
+	function on<T:Function>(eventName: js.echarts.Event<T>, handler: T, ?context: Dynamic):Void;
 
 	/**
 	 如不指定 handler 参数，则解绑所有该类型的事件函数。

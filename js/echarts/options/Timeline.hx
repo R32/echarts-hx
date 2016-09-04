@@ -80,31 +80,31 @@ typedef Timeline = {
 	/*
 	 `default: "auto"`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
 
 	 `default: "auto"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 	/**
 	 图例内边距，单位px。`全 | [上下, 左右] | [上, 右, 下, 左]`
 
 	 `default: 5`
 	*/
-	@:optional var padding: EitherType<Float, Array<Float>>;
+	@:optional var padding: OrArray<Float>;
 
 	/**
 	 摆放方式。 default: 'horizontal'
@@ -129,7 +129,7 @@ typedef Timeline = {
 
 	 `default: 10`
 	*/
-	@:optional var symbolSize: EitherType<Int, Array<Int>>;
+	@:optional var symbolSize: OrArray<Int>;
 
 	/**
 	 timeline标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时
@@ -142,7 +142,7 @@ typedef Timeline = {
 
 	 `default: [0, 0]`
 	*/
-	@:optional var symbolOffset: Array<EitherType<Int, String>>;
+	@:optional var symbolOffset: Array<Value>;
 
 	/**
 	`color: #304654, width: 2, type: solid`
@@ -221,7 +221,7 @@ private typedef Border = {
 
 private typedef LabelEx = {
 	> Label,
-	?interval: EitherType<String, Float>, // auto
+	?interval: Value, // auto
 	?rotate: Float,  // 旋转角度。正值表示逆时针旋转
 	?formatter: EitherType<String, Any->Int->String>
 }

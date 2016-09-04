@@ -80,7 +80,7 @@ typedef AxisBase = {
 
 	 `default: true`
 	*/
-	@:optional var boundaryGap: EitherType<Bool, Array<EitherType<Float, String>>>;
+	@:optional var boundaryGap: EitherType<Bool, Array<Value>>;
 
 	/**
 	 坐标轴刻度最小值，在类目轴中无效。
@@ -91,7 +91,7 @@ typedef AxisBase = {
 
 	 `default: auto`
 	*/
-	@:optional var min: EitherType<Float, String>;
+	@:optional var min: Value;
 
 	/**
 	 坐标轴刻度最大值，在类目轴中无效。
@@ -102,7 +102,7 @@ typedef AxisBase = {
 
 	 `default: auto`
 	*/
-	@:optional var max: EitherType<Float, String>;
+	@:optional var max: Value;
 
 	/**
 	 只在数值轴中（type: 'value'）有效。

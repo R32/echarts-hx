@@ -49,35 +49,35 @@ typedef Legend = {
 
 	 `default: "auto"`
 	*/
-	@:optional var left: Either3<Float, TextAlign, String>;
+	@:optional var left: EitherType<Value, TextAlign>;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var top: Either3<Float, TextVAlign, String>;
+	@:optional var top: EitherType<Value, TextVAlign>;
 
 	/**
 	 值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
 
 	 `default: "auto"`
 	*/
-	@:optional var right: EitherType<Float, String>;
+	@:optional var right: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var bottom: EitherType<Float, String>;
+	@:optional var bottom: Value;
 
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var width: EitherType<Float, String>;
+	@:optional var width: Value;
 
 	/**
 	 `default: "auto"`
 	*/
-	@:optional var height: EitherType<Float, String>;
+	@:optional var height: Value;
 
 	/**
 	 图例列表的布局朝向。 default: 'horizontal'
@@ -97,7 +97,7 @@ typedef Legend = {
 
 	 `default: 5`
 	*/
-	@:optional var padding: EitherType<Float, Array<Float>>;
+	@:optional var padding: OrArray<Float>;
 
 	/**
 	 图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。

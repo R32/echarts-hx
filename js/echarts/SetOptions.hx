@@ -3,7 +3,6 @@ package js.echarts;
 import js.echarts.options.*;
 import js.echarts.options.Data;
 import js.echarts.options.Base;
-import haxe.extern.EitherType;
 
 typedef SetOptions = {
 
@@ -17,27 +16,27 @@ typedef SetOptions = {
 	@:optional var hoverLayerThreshold : Float;    // 3000
 	@:optional var textStyle : TextStyle;
 	////
-	@:optional var title : EitherType<Title, Array<Title>>;
-	@:optional var legend : EitherType<Legend, Array<Legend>>;
+	@:optional var title : OrArray<Title>;
+	@:optional var legend : OrArray<Legend>;
 	@:optional var grid : Array<Grid>;
-	@:optional var xAxis : EitherType<XAxis, Array<XAxis>>;
-	@:optional var yAxis : EitherType<YAxis, Array<YAxis>>;
-	@:optional var polar : EitherType<Polar, Array<Polar>>;
-	@:optional var radiusAxis : EitherType<RadiusAxis, Array<RadiusAxis>>;
-	@:optional var angleAxis : EitherType<AngleAxis, Array<AngleAxis>>;
-	@:optional var radar : EitherType<Radar, Array<Radar>>;
+	@:optional var xAxis : OrArray<XAxis>;
+	@:optional var yAxis : OrArray<YAxis>;
+	@:optional var polar : OrArray<Polar>;
+	@:optional var radiusAxis : OrArray<RadiusAxis>;
+	@:optional var angleAxis : OrArray<AngleAxis>;
+	@:optional var radar : OrArray<Radar>;
 	@:optional var dataZoom : Array<DataZoom>;
 	@:optional var visualMap : Array<VisualMap>;
-	@:optional var tooltip : EitherType<Tooltip, Array<Tooltip>>;
-	@:optional var toolbox : EitherType<Toolbox, Array<Toolbox>>;
-	@:optional var brush : EitherType<Brush, Array<Brush>>;
-	@:optional var geo : EitherType<Geo, Array<Geo>>;
-	@:optional var parallel : EitherType<Parallel, Array<Parallel>>;
+	@:optional var tooltip : OrArray<Tooltip>;
+	@:optional var toolbox : OrArray<Toolbox>;
+	@:optional var brush : OrArray<Brush>;
+	@:optional var geo : OrArray<Geo>;
+	@:optional var parallel : OrArray<Parallel>;
 	@:optional var parallelAxis : Array<ParallelAxis>;
 	@:optional var singleAxis : Array<SingleAxis>;
-	@:optional var timeline : EitherType<Timeline, Array<Timeline>>;
+	@:optional var timeline : OrArray<Timeline>;
 	// TODO:
-	@:optional var series : EitherType<Dynamic, Array<Dynamic>>;
+	@:optional var series : OrArray<Dynamic>;
 
 }
 
